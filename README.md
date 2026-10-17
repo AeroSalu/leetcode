@@ -1,12 +1,12 @@
 # LeetCode solutions
 
-My accepted LeetCode submissions, written in **Java** and synced here automatically. Every time I get a problem accepted, the solution lands in this repo by the next morning, with no manual copying.
+My accepted LeetCode submissions, written in **Java**. When I get a problem accepted, [LeetSync](https://github.com/LeetSync/LeetSync) pushes the solution here straight away. I don't copy anything by hand.
 
-**70 problems so far** (as of 5 October 2026), and counting.
+**75 problems so far** (as of 17 October 2026), and counting.
 
 ## What's in here
 
-Everything lives in the [`solutions`](solutions) folder, one folder per problem, named by problem number and title:
+Everything is in the [`solutions`](solutions) folder. Each problem has its own folder, named by problem number and title:
 
 ```text
 solutions/
@@ -18,36 +18,24 @@ solutions/
 └── ...
 ```
 
-The folders sort by problem number, so browsing [`solutions`](solutions) lists them in order.
+The folders sort by problem number, so [`solutions`](solutions) lists them in order.
 
-Each solution is its own commit, and the commit message records how the submission performed, for example:
-
-```text
-Sync LeetCode: Runtime - 2 ms (74.95%), Memory - 63.1 MB (17.08%)
-```
-
-The percentages are LeetCode's "beats" figures at the time of submission. If I solve the same problem again on a later day, the newer solution replaces the file and the earlier one stays in the commit history.
+Each accepted submission is its own commit, and the commit message records how it performed: runtime and memory, plus LeetCode's "beats" percentages at the time. If I solve the same problem again later, the newer solution replaces the old one, which stays in the commit history.
 
 ## How the sync works
 
-A GitHub Actions workflow, [`.github/workflows/sync.yml`](.github/workflows/sync.yml), runs every day at 08:00 IST (and on demand from the Actions tab). It uses the [`joshcai/leetcode-sync`](https://github.com/joshcai/leetcode-sync) action to:
+[LeetSync](https://github.com/LeetSync/LeetSync) is a Chrome extension. Once it's linked to GitHub and pointed at this repo's `solutions` folder, it watches for accepted submissions on leetcode.com and commits each one as soon as LeetCode accepts it. It needs no LeetCode cookies, repository secrets or scheduled jobs.
 
-1. Log in to LeetCode with a session stored as encrypted repository secrets.
-2. Fetch every accepted submission that isn't in the repo yet.
-3. Commit each one to its problem folder.
-
-The secrets are never written to the repo or the logs; only their names appear in the workflow file.
+Solutions up to early October 2026 were imported by an earlier GitHub Actions workflow, which has since been removed. Their commits start with `Sync LeetCode:`.
 
 ## Setting this up for your own account
 
-1. Create a repo and copy [`.github/workflows/sync.yml`](.github/workflows/sync.yml) into it.
-2. Log in to LeetCode in your browser, open the developer tools, and copy the values of the `csrftoken` and `LEETCODE_SESSION` cookies.
-3. In the repo's **Settings → Secrets and variables → Actions**, add them as `LEETCODE_CSRF_TOKEN` and `LEETCODE_SESSION`.
-4. Run the workflow once from the Actions tab to import your full history.
-
-The cookies expire after a few weeks. When the daily run starts failing, repeat steps 2 and 3 with fresh values.
+1. Create an empty GitHub repo.
+2. Install the LeetSync extension from the Chrome Web Store.
+3. Open the extension, sign in with GitHub, and choose the repo (and a folder in it if you want one).
+4. Solve a problem on leetcode.com. Once it's accepted, the solution shows up in the repo.
 
 ## Notes
 
-- Problem statements in the per-problem README files are LeetCode's and are included only for reference alongside my solutions.
-- Solutions are what was accepted at the time, not necessarily the most optimal approach; the commit history shows where I came back and improved one.
+- The problem statements in the per-problem README files belong to LeetCode. I include them only for reference next to my solutions.
+- Each solution is what LeetCode accepted at the time, not necessarily the best approach. The commit history shows where I came back and improved one.
