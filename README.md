@@ -2,14 +2,13 @@
 
 My accepted LeetCode submissions, written in **Java**. When I get a problem accepted, [LeetSync](https://github.com/LeetSync/LeetSync) pushes the solution here straight away. I don't copy anything by hand.
 
-**75 problems so far** (as of 17 October 2026), and counting.
+**86 problems so far** (as of 23 October 2026), and counting.
 
 ## What's in here
 
-Everything is in the [`solutions`](solutions) folder. Each problem has its own folder, named by problem number and title:
+Each problem has its own folder at the top of the repo, named by problem number and title:
 
 ```text
-solutions/
 ├── 0001-two-sum/
 │   ├── README.md        the problem statement
 │   └── solution.java    my accepted solution
@@ -18,13 +17,13 @@ solutions/
 └── ...
 ```
 
-The folders sort by problem number, so [`solutions`](solutions) lists them in order.
+The folders sort by problem number, so the repo's file list shows them in order.
 
 Each accepted submission is its own commit, and the commit message records how it performed: runtime and memory, plus LeetCode's "beats" percentages at the time. If I solve the same problem again later, the newer solution replaces the old one, which stays in the commit history.
 
 ## How the sync works
 
-[LeetSync](https://github.com/LeetSync/LeetSync) is a Chrome extension. Once it's linked to GitHub and pointed at this repo's `solutions` folder, it watches for accepted submissions on leetcode.com and commits each one as soon as LeetCode accepts it. It needs no LeetCode cookies, repository secrets or scheduled jobs.
+[LeetSync](https://github.com/LeetSync/LeetSync) is a Chrome extension. Once it's linked to GitHub and pointed at this repo, it watches for accepted submissions on leetcode.com and commits each one as soon as LeetCode accepts it. It needs no LeetCode cookies, repository secrets or scheduled jobs.
 
 Solutions up to early October 2026 were imported by an earlier GitHub Actions workflow, which has since been removed. Their commits start with `Sync LeetCode:`.
 
