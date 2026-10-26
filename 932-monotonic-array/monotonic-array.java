@@ -6,13 +6,15 @@ class Solution {
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] > nums[i - 1]) {
                 decreasing = false;
+            } else if (nums[i] < nums[i - 1]) {
+                increasing = false;
             }
 
-            if (nums[i] < nums[i - 1]) {
-                increasing = false;
+            if (!increasing && !decreasing) {
+                return false;
             }
         }
 
-        return increasing || decreasing;
+        return true;
     }
 }
